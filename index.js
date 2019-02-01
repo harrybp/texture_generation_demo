@@ -51,7 +51,6 @@ function increment_loaded(){
         $('#gatys_button').removeAttr("disabled");
         $('#both_button').removeAttr("disabled");
     }
-    
 }
 
 function preload(){
@@ -70,9 +69,7 @@ function preload(){
     
 }
 
-imagesLoaded( document, function( instance ) {
-    console.log('all images are loaded');
-  });
+
 //-----------------------------------------------------------------------------
 //  Initialise
 $(document).ready(function() {
