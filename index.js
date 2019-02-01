@@ -50,6 +50,7 @@ function increment_loaded(){
         $('#gan_button').removeAttr("disabled");
         $('#gatys_button').removeAttr("disabled");
         $('#both_button').removeAttr("disabled");
+        $('#loading_spinner').hide();
         console.log('loaded')
     }
 }

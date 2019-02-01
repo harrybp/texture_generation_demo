@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
         body {
             background-color: #E8FAFF;
@@ -57,6 +57,7 @@
     </style>
 </head>
 <body>
+        
     <div class="container-fluid title-container">
         <div class='container'>
                 <h2 >Texture Synthesis with Convolutional Neural Networks</h2>
@@ -65,6 +66,7 @@
     </div>
 
     <div class='container'>
+                
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Animated Textures</h4>
@@ -89,8 +91,16 @@
                 <p class="card-text"><b>Generational Adversarial Networks</b> or 'GANS'. 
                     Here the generators are pretrained for 140k iterations on random crops of the source image.
                     A checkpoint of the generator is saved every 500 iterations, the demonstration generates an image using each checkpoint to show the learning process.</p>
+                    
+                
+                <div class="d-flex justify-content-center" >
+                    <div class="spinner-border text-primary" role="status" id='loading_spinner'>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 <br>
                 <div class='row'>
+                        
                     <div class='col-sm-4'>
                         <div class="input-group">
                             <select onchange='show_source_image()' type="text" class="form-control" id="source_select">
