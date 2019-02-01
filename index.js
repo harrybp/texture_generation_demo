@@ -89,7 +89,7 @@ setInterval(function(){
         $('#gatys_progress').css('width', percent + '%');
         var source = $('#source_select').val()
         $("#gatys_image").attr("src", 'textures/gatys/' + source + '/' + gatys_progress + '.jpg');
-        if(gatys_progress > 251){
+        if(gatys_progress > 250){
             disable_gatys()
         }  
     }
@@ -99,7 +99,7 @@ setInterval(function(){
         $('#gan_progress').css('width', percent + '%');
         var source = $('#source_select').val()
         $("#gan_image").attr("src", 'textures/gan/' + source + '/' + gan_progress + '.jpg');
-        if(gan_progress > 251){
+        if(gan_progress > 250){
             disable_gan()
         } 
     }
