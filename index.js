@@ -43,12 +43,28 @@ function show_source_image(){
     $("#source_image").attr("src", 'textures/cropped/'+ source + '.jpg');
 }
 
+
+function preload(){
+    image_list = ['bricks', 'painting', 'lava', 'pebbles', 'water', 'snake']
+    for(var i in image_list){
+        console.log(image_list[i])
+        for(var j = 0; j < 255; j++){
+            var img1 = new Image();
+            img1.src = 'textures/gatys/' + image_list[i] + '/' + j + '.jpg'
+            var img2 = new Image()
+            img2.src = 'textures/gan/' + image_list[i] + '/' + j + '.jpg'
+        }
+    }
+    consoele.log('loaded')
+}
+
 //-----------------------------------------------------------------------------
 //  Initialise
 $(document).ready(function() {
     $('#gatys_progress_container').hide();
     $('#gan_progress_container').hide();
     show_source_image();
+    preload()
 });
 
 //-----------------------------------------------------------------------------
