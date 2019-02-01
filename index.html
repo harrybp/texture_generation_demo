@@ -3,6 +3,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!--<script type="text/javascript" src="{{ url_for('static', filename='index_new.js') }}"></script>
     -->
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -69,20 +71,20 @@
                                 <option>water</option>
                             </select>
                             <div class="input-group-append">
-                                <a href="#" class="btn btn-primary" onclick="gan_button(); gatys_button();">Go</a>
+                                <button id='both_button' class="btn btn-primary" onclick="gan_button(); gatys_button();" disabled>Go</a>
                             </div>
                         </div>
                         <img id='source_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
                     </div>
                     <div class='col-sm-4'>
-                        <button id='gatys_button' onclick=gatys_button() class="btn btn-primary" style="width:100%">Generate</button>
+                        <button id='gatys_button' onclick=gatys_button() class="btn btn-primary" style="width:100%" disabled>Generate</button>
                         <div class="progress" id='gatys_progress_container' style='height:38px'>
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='gatys_progress' style="width: 0%;"></div>
                         </div>
                         <img id='gatys_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
                     </div>
                     <div class='col-sm-4'>
-                        <button id='gan_button' onclick=gan_button() class="btn btn-primary" style="width:100%">Generate</button>
+                        <button id='gan_button' onclick=gan_button() class="btn btn-primary" style="width:100%" disabled>Generate</button>
                         <div class="progress" id='gan_progress_container' style='height:38px'>
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='gan_progress' style="width: 0%;"></div>
                         </div>
