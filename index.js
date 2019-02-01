@@ -55,7 +55,9 @@ function preload(){
             img2.src = 'textures/gan/' + image_list[i] + '/' + j + '.jpg'
         }
     }
-    consoele.log('loaded')
+    $('#gan_button').removeAttr("disabled");
+    $('#gatys_button').removeAttr("disabled");
+    $('#both_button').removeAttr("disabled");
 }
 
 //-----------------------------------------------------------------------------
