@@ -43,23 +43,36 @@ function show_source_image(){
     $("#source_image").attr("src", 'textures/cropped/'+ source + '.jpg');
 }
 
+loaded = 0;
+function increment_loaded(){
+    loaded++;
+    if(loaded == 1530){
+        $('#gan_button').removeAttr("disabled");
+        $('#gatys_button').removeAttr("disabled");
+        $('#both_button').removeAttr("disabled");
+    }
+    
+}
 
 function preload(){
     image_list = ['bricks', 'painting', 'lava', 'pebbles', 'water', 'snake']
     for(var i in image_list){
         console.log(image_list[i])
-        for(var j = 0; j < 255; j++){
+        for(var j = 0; j < 255; j+=2){
             var img1 = new Image();
+            img1.onload = increment_loaded;
             img1.src = 'textures/gatys/' + image_list[i] + '/' + j + '.jpg'
             var img2 = new Image()
+            img2.onload = increment_loaded;
             img2.src = 'textures/gan/' + image_list[i] + '/' + j + '.jpg'
         }
     }
-    $('#gan_button').removeAttr("disabled");
-    $('#gatys_button').removeAttr("disabled");
-    $('#both_button').removeAttr("disabled");
+    
 }
 
+imagesLoaded( document, function( instance ) {
+    console.log('all images are loaded');
+  });
 //-----------------------------------------------------------------------------
 //  Initialise
 $(document).ready(function() {
@@ -73,7 +86,7 @@ $(document).ready(function() {
 //  Loop
 setInterval(function(){
     if(gatys_active){
-        gatys_progress++;
+        gatys_progress+=2;
         percent = (100/253)*gatys_progress + 1; 
         $('#gatys_progress').css('width', percent + '%');
         var source = $('#source_select').val()
@@ -83,7 +96,7 @@ setInterval(function(){
         }  
     }
     if(gan_active){
-        gan_progress++;
+        gan_progress+=2;
         percent = (100/253)*gan_progress + 1; 
         $('#gan_progress').css('width', percent + '%');
         var source = $('#source_select').val()
