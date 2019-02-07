@@ -46,13 +46,17 @@ function show_source_image(){
 }
 
 loaded = 0;
+total_images = 1374
 function increment_loaded(){
     loaded++;
-    if(loaded == 1380){
+    percent = ((100/total_images)*loaded)
+    console.log(loaded)
+    $('#loading_progress').css('width', percent + '%')
+    if(loaded == total_images){
         $('#gan_button').removeAttr("disabled");
         $('#gatys_button').removeAttr("disabled");
         $('#both_button').removeAttr("disabled");
-        $('#loading_spinner').hide();
+        $('#loading_progress_container').hide();
         console.log('loaded')
     }
 }
@@ -62,7 +66,7 @@ function preload(){
     for(var i in image_list){
         console.log(image_list[i])
         for(var j = 0; j < 330; j+=1){
-            if(j < 150){
+            if(j < 64){
                 var img1 = new Image();
                 img1.onload = increment_loaded;
                 img1.src = 'textures/' + image_list[i] + '/gatys/' + j + '.jpg'
