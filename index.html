@@ -18,6 +18,9 @@
             height: 200px;
             
         }
+        .progress-bar {
+            font-size: 2em;
+        }
         .water {
             background-image: url('textures/moving/water.gif');
             border-radius: 0px 0px 0px 5px;
@@ -87,10 +90,13 @@
                 <h4 class="card-title" style='margin-bottom:20px;'>Comparing two approaches to texture generation</h4>
                 <p class="card-text"><b>Optimising on random noise</b> as proposed by gatys et al. 
                     A single pretrained discriminator can be used to generate from any source image.
-                    Here the demonstration shows the real time noise image as it is generated over 300 iterations.</p>
+                    Here the demonstration shows the real time noise image as it is generated over 150 iterations.
+                    The demonstration speeds up as it progresses as the image changes less. </p>
                 <p class="card-text"><b>Generational Adversarial Networks</b> or 'GANS'. 
-                    Here the generators are pretrained for 140k iterations on random crops of the source image.
-                    A checkpoint of the generator is saved every 500 iterations, the demonstration generates an image using each checkpoint to show the learning process.</p>
+                    Here the generators are pretrained for 42k iterations on random crops of the source image.
+                    A checkpoint of the generator is saved at regular intervals. The demonstration generates an image using each checkpoint to show the learning process.
+                    Again it speeds up as it progresses as the improvement of the generator slows as it gets more and more accurate. 
+                    </p>
                     
                 
                 <div class="d-flex justify-content-center" >
@@ -104,12 +110,15 @@
                     <div class='col-sm-4'>
                         <div class="input-group">
                             <select onchange='show_source_image()' type="text" class="form-control" id="source_select">
-                                <option>painting</option>
+                                
                                 <option>bricks</option>
+                                <option>snake</option>
+                                <option>pebbles</option>
                                 <option>water</option>
                                 <option>lava</option>
-                                <option>pebbles</option>
-                                <option>snake</option>
+                                
+                                <option>painting</option>
+                                
                                 
                             </select>
                             <div class="input-group-append">
