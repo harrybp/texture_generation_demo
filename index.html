@@ -99,14 +99,15 @@
                     </p>
                     
                 
+                
                 <div class="progress" id='loading_progress_container' style='height:38px'>
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='loading_progress' style="width: 0%;"></div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='loading_progress' style="width: 0%;">Loading Images</div>
                 </div>
-                <br>
                 <div class='row'>
+                    
                         
                     <div class='col-sm-4'>
-                        <div class="input-group">
+                        <div class="input-group initial">
                             <select onchange='show_source_image()' type="text" class="form-control" id="source_select">
                                 
                                 <option>bricks</option>
@@ -126,16 +127,20 @@
                         <img id='source_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
                     </div>
                     <div class='col-sm-4'>
-                        <button id='gatys_button' onclick=gatys_button() class="btn btn-primary" style="width:100%" disabled>Generate</button>
-                        <div class="progress" id='gatys_progress_container' style='height:38px'>
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='gatys_progress' style="width: 0%;"></div>
+                        <div class='initial'>
+                            <button id='gatys_button' onclick=gatys_button() class="btn btn-primary" style="width:100%">Generate</button>
+                            <div class="progress" id='gatys_progress_container' style='height:38px'>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='gatys_progress' style="width: 0%;"></div>
+                            </div>
                         </div>
                         <img id='gatys_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
                     </div>
                     <div class='col-sm-4'>
-                        <button id='gan_button' onclick=gan_button() class="btn btn-primary" style="width:100%" disabled>Generate</button>
-                        <div class="progress" id='gan_progress_container' style='height:38px'>
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='gan_progress' style="width: 0%;"></div>
+                        <div class='initial'>
+                            <button id='gan_button' onclick=gan_button() class="btn btn-primary" style="width:100%">Generate</button>
+                            <div class="progress" id='gan_progress_container' style='height:38px'>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='gan_progress' style="width: 0%;"></div>
+                            </div>
                         </div>
                         <img id='gan_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
                     </div>

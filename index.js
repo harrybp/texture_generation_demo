@@ -50,12 +50,11 @@ total_images = 1374
 function increment_loaded(){
     loaded++;
     percent = ((100/total_images)*loaded)
-    console.log(loaded)
     $('#loading_progress').css('width', percent + '%')
     if(loaded == total_images){
-        $('#gan_button').removeAttr("disabled");
-        $('#gatys_button').removeAttr("disabled");
-        $('#both_button').removeAttr("disabled");
+        $('.initial').each(function(i, obj){
+            $(obj).show()
+        });
         $('#loading_progress_container').hide();
         console.log('loaded')
     }
@@ -83,9 +82,13 @@ function preload(){
 }
 
 
+
 //-----------------------------------------------------------------------------
 //  Initialise
 $(document).ready(function() {
+    $('.initial').each(function(i, obj){
+        $(obj).hide()
+    });
     $('#gatys_progress_container').hide();
     $('#gan_progress_container').hide();
     show_source_image();
