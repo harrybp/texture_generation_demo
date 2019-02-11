@@ -82,6 +82,7 @@
                     A checkpoint of the generator is saved at regular intervals. The demonstration generates an image using each checkpoint to show the learning process.
                     Again it speeds up as it progresses as the improvement of the generator slows as it gets more and more accurate. 
                     </p>
+                <p class='card-text'>The two GAN models are <b>Periodic-Spatial-GAN</b> and <b>Deep-Convolutional-GAN</b> respectively. DCGAN is limited to 64x64 images.</p>
                     
                 
                 
@@ -91,7 +92,7 @@
                 <div class='row'>
                     
                         
-                    <div class='col-sm-4'>
+                    <div class='col-sm-3'>
                         <div class="input-group initial">
                             <select onchange='show_source_image()' type="text" class="form-control" id="source_select">
                                 
@@ -100,18 +101,19 @@
                                 <option>pebbles</option>
                                 <option>water</option>
                                 <option>lava</option>
-                                
+                                <option>camo</option>
                                 <option>painting</option>
+                                <option>check</option>
                                 
                                 
                             </select>
                             <div class="input-group-append">
-                                <button id='both_button' class="btn btn-primary" onclick="gan_button(); gatys_button();">Go</a>
+                                <button id='both_button' class="btn btn-primary" onclick="gan_button(); gatys_button(); dc_gan_button()">Go</a>
                             </div>
                         </div>
                         <img id='source_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
                     </div>
-                    <div class='col-sm-4'>
+                    <div class='col-sm-3'>
                         <div class='initial'>
                             <button id='gatys_button' onclick=gatys_button() class="btn btn-primary" style="width:100%">Generate</button>
                             <div class="progress" id='gatys_progress_container' style='height:38px'>
@@ -120,7 +122,7 @@
                         </div>
                         <img id='gatys_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
                     </div>
-                    <div class='col-sm-4'>
+                    <div class='col-sm-3'>
                         <div class='initial'>
                             <button id='gan_button' onclick=gan_button() class="btn btn-primary" style="width:100%">Generate</button>
                             <div class="progress" id='gan_progress_container' style='height:38px'>
@@ -128,6 +130,15 @@
                             </div>
                         </div>
                         <img id='gan_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
+                    </div>
+                    <div class='col-sm-3'>
+                        <div class='initial'>
+                            <button id='dc_gan_button' onclick=dc_gan_button() class="btn btn-primary" style="width:100%">Generate</button>
+                            <div class="progress" id='dc_gan_progress_container' style='height:38px'>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id='dc_gan_progress' style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <img id='dc_gan_image' src="http://jmh.furniture/wp-content/uploads/2016/07/polar-white.jpg" class="rounded img-responsive" alt=""  style='width:100%; border:1px solid black'>
                     </div>
                 </div>
             </div>

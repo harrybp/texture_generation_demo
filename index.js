@@ -2,6 +2,8 @@ var gatys_active = false;
 var gatys_progress = 0;
 var gan_progress = 0;
 var gan_active = false;
+var dc_gan_active = false;
+var dc_gan_progress = 0;
 
 //-----------------------------------------------------------------------------
 //  Start generating image using gatys method
@@ -35,6 +37,21 @@ function disable_gan(){
     gan_active = false;
     gan_progress = 0; 
 }
+//-----------------------------------------------------------------------------
+//  Start generating image using gan method
+function dc_gan_button(){
+    dc_gan_active = true;
+    dc_gan_progress = 0;
+    $('#dc_gan_button').hide()
+    $('#dc_gan_progress_container').show();
+}
+function disable_dc_gan(){
+    $('#dc_gan_button').show()
+    $('#dc_gan_progress_container').hide(); 
+    $('#dc_gan_progress').css('width', '0%');
+    dc_gan_active = false;
+    dc_gan_progress = 0; 
+}
 
 //-----------------------------------------------------------------------------
 //  Display the selected source image
@@ -46,7 +63,7 @@ function show_source_image(){
 }
 
 loaded = 0;
-total_images = 1374
+total_images = 3152
 function increment_loaded(){
     loaded++;
     percent = ((100/total_images)*loaded)
@@ -61,7 +78,7 @@ function increment_loaded(){
 }
 
 function preload(){
-    image_list = ['bricks', 'painting', 'lava', 'pebbles', 'water', 'snake']
+    image_list = ['bricks', 'painting', 'lava', 'pebbles', 'water', 'snake', 'camo', 'check']
     for(var i in image_list){
         console.log(image_list[i])
         for(var j = 0; j < 330; j+=1){
@@ -74,6 +91,11 @@ function preload(){
                 var img2 = new Image()
                 img2.onload = increment_loaded;
                 img2.src = 'textures/' + image_list[i] + '/gan/' + j + '.jpg'
+            }
+            if(j % 2 == 0){
+                var img3 = new Image()
+                img3.onload = increment_loaded;
+                img3.src = 'textures/' + image_list[i] + '/dc_gan/' + j + '.jpg'
             }
             
         }
@@ -91,6 +113,7 @@ $(document).ready(function() {
     });
     $('#gatys_progress_container').hide();
     $('#gan_progress_container').hide();
+    $('#dc_gan_progress_container').hide();
     show_source_image();
     preload()
 });
@@ -116,6 +139,25 @@ setInterval(function(){
         $("#gan_image").attr("src", 'textures/' + source + '/gan/' + gan_progress + '.jpg');
         if(gan_progress > 330){
             disable_gan()
+        } 
+    }
+    if(dc_gan_active){
+        dc_gan_progress+=2;
+        percent = (100/320)*dc_gan_progress + 1; 
+        $('#dc_gan_progress').css('width', percent + '%');
+
+        if(dc_gan_progress < 200)
+            iterations = (dc_gan_progress+1) * 50;
+        else if(dc_gan_progress < 265)
+            iterations = 10000 + (dc_gan_progress - 199)*150
+        else 
+            iterations = 20000 + (dc_gan_progress - 264)*300
+        $('#dc_gan_progress').text(iterations);
+
+        var source = $('#source_select').val()
+        $("#dc_gan_image").attr("src", 'textures/' + source + '/dc_gan/' + dc_gan_progress + '.jpg');
+        if(dc_gan_progress > 330){
+            disable_dc_gan()
         } 
     }
 }, 50)
