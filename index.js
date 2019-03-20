@@ -63,7 +63,7 @@ function show_source_image(){
 }
 
 loaded = 0;
-total_images = 3152
+total_images = 1970
 function increment_loaded(){
     loaded++;
     percent = ((100/total_images)*loaded)
@@ -78,7 +78,7 @@ function increment_loaded(){
 }
 
 function preload(){
-    image_list = ['bricks', 'painting', 'lava', 'pebbles', 'water', 'snake', 'camo', 'check']
+    image_list = ['bricks', 'painting', 'pebbles', 'water', 'snake']
     for(var i in image_list){
         console.log(image_list[i])
         for(var j = 0; j < 330; j+=1){
